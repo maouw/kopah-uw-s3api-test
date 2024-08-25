@@ -1,0 +1,32 @@
+name: CI
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - shell: /bin/busybox ash
+            awk: /bin/busybox awk
+          - shell: /bin/dash
+          - shell: /bin/bash
+          - shell: /bin/zsh
+          - awk: /usr/bin/original-awk
+          - awk: /usr/lib/freebsd/awk
+          - os: macos-latest
+            shell: /bin/sh
+          - os: macos-latest
+            shell: /bin/bash
+    runs-on: ${{ matrix.os || 'ubuntu-20.04' }}
+    env:
+      ESH_SHELL: ${{ matrix.shell }}
+      ESH_AWK: ${{ matrix.awk }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: sudo apt-get install freebsd-glue original-awk zsh
+        if: runner.os == 'Linux'
+
+      - run: make test
