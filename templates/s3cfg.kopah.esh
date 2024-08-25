@@ -1,0 +1,4 @@
+<%+ s3cfg.base.esh %>
+host_base = s3.kopah.orci.washington.edu
+host_bucket = s3.kopah.orci.washington.edu/%(bucket)
+use_https = True

@@ -1,0 +1,9 @@
+[default]
+# Login credentials
+access_key = <%= $AWS_ACCESS_KEY_ID %>
+secret_key = <%= $AWS_SECRET_ACCESS_KEY %>
+check_ssl_certificate = False
+check_ssl_hostname = False
+human_readable_sizes = True
+progress_meter = True
+verbosity = WARNING

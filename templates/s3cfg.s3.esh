@@ -1,0 +1,4 @@
+<%+ s3cfg.base.esh %>
+host_base = s3.amazonaws.com
+host_bucket = %(bucket)s.s3.amazonaws.com
+region = us-west-2

@@ -1,0 +1,1180 @@
+{
+  "Remote": "kopah0",
+  "ControlCharacters": {
+    "\u0001": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0002": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0003": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0004": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0005": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0006": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0007": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\b": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\t": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\n": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u000b": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\f": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\r": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u000e": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u000f": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0010": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0011": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0012": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0013": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0014": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0015": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0016": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0017": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0018": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u0019": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u001a": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u001b": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u001c": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u001d": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u001e": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\u001f": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    " ": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "!": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "\"": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "#": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "$": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "%": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "\u0026": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "'": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "(": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    ")": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "*": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "+": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    ",": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "-": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    ".": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "0": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "1": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "2": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "3": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "4": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "5": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "6": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "7": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "8": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "9": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    ":": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    ";": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "\u003c": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "=": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "\u003e": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "?": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "@": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "A": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "B": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "C": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "D": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "E": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "F": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "G": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "H": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "I": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "J": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "K": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "L": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "M": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "N": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "O": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "P": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "Q": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "R": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "S": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "T": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "U": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "V": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "W": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "X": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "Y": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "Z": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "[": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "\\": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "]": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "^": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "_": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "`": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "a": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "b": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "c": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "d": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "e": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "f": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "g": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "h": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "i": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "j": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "k": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "l": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "m": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "n": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "o": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "p": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "q": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "r": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "s": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "t": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "u": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "v": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "w": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "x": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "y": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "z": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "{": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "|": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "}": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "~": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "renamed",
+        "middle": "renamed",
+        "right": "renamed"
+      }
+    },
+    "\ufffd": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    " ": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "＼": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    },
+    "\ufffd": {
+      "WriteError": {},
+      "GetError": {},
+      "InList": {
+        "left": "present",
+        "middle": "present",
+        "right": "present"
+      }
+    }
+  },
+  "MaxFileLength": 991,
+  "CanStream": true,
+  "CanWriteUnnormalized": true,
+  "CanReadUnnormalized": true,
+  "CanReadRenormalized": false
+}

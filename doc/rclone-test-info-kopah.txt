@@ -1,0 +1,20 @@
+rclone test info --all kopah0:nrdg-pub                                                                  [5/4233]
+
+2024/08/24 00:05:52 NOTICE: S3 bucket nrdg-pub path rclone-test-info-linuwis0: Streaming uploads using chunk size
+5Mi will have maximum file size of 48.828Gi
+2024/08/24 00:05:54 NOTICE: S3 bucket nrdg-pub path rclone-test-info-linuwis0/test-base32768: 0 differences found
+2024/08/24 00:05:54 NOTICE: S3 bucket nrdg-pub path rclone-test-info-linuwis0/test-base32768: 1028 matching files
+// kopah0
+stringNeedsEscaping = []rune{
+        '/', '\x00'
+}
+maxFileLength = 998 // for 1 byte unicode characters
+maxFileLength = 499 // for 2 byte unicode characters
+maxFileLength = 332 // for 3 byte unicode characters
+maxFileLength = 249 // for 4 byte unicode characters
+canWriteUnnormalized = true
+canReadUnnormalized   = true
+canReadRenormalized   = false
+canStream = true
+base32768isOK = true // make sure maxFileLength for 2 byte unicode chars is the same as for 1 byte characters
+
