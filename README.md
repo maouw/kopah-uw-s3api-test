@@ -58,37 +58,35 @@ echo "Access the file at: https://s3.kopah.orci.washington.edu/nrdg-pub/index.ht
 
 ## Performance
 
-Tested with https://github.com/christianbaun/ossperf and https://github.com/minio/warp
-
 ### warp
 
 Used `warp mixed` to test throughput on KOPAH and us-west-2 endpoints on a klone compute node and a laptop ("maoxps") on the UW network.
 
 | Endpoint  | Machine   | Operation | Throughput (MiB/s) | Throughput (obj/s) |
 | --------- | ------ | --------- | ------------------ | ------------------ |
-| kopah     | klone  | GET       | 110.64 MiB/s       | 11.06 obj/s        |
-| kopah     | klone  | PUT       | 37.27 MiB/s        | 3.73 obj/s         |
-| kopah     | klone  | STAT      |                    | 7.39 obj/s         |
-| kopah     | klone  | DELETE    |                    | 2.49 obj/s         |
-| us-west-2 | klone  | GET       | 110.64 MiB/s       | 11.06 obj/s        |
-| us-west-2 | klone  | PUT       | 37.27 MiB/s        | 3.73 obj/s         |
-| us-west-2 | klone  | STAT      |                    | 7.39 obj/s         |
-| us-west-2 | klone  | DELETE    |                    | 2.49 obj/s         |
-| kopah     | maoxps | GET       | 108.97 MiB/s       | 10.90 obj/s        |
-| kopah     | maoxps | PUT       | 36.58 MiB/s        | 3.66 obj/s         |
-| kopah     | maoxps | STAT      |                    | 7.29 obj/s         |
-| kopah     | maoxps | DELETE    |                    | 2.42 obj/s         |
-| us-west-2 | maoxps | GET       | 106.28 MiB/s       | 10.63 obj/s        |
-| us-west-2 | maoxps | PUT       | 35.42 MiB/s        | 3.54 obj/s         |
-| us-west-2 | maoxps | STAT      |                    | 7.10 obj/s         |
-| us-west-2 | maoxps | DELETE    |                    | 2.38 obj/s         |
+| kopah     | klone  | GET       | 110.64        | 11.06         |
+| kopah     | klone  | PUT       | 37.27         | 3.73          |
+| kopah     | klone  | STAT      |                    | 7.39          |
+| kopah     | klone  | DELETE    |                    | 2.49          |
+| us-west-2 | klone  | GET       | 110.64        | 11.06         |
+| us-west-2 | klone  | PUT       | 37.27         | 3.73          |
+| us-west-2 | klone  | STAT      |                    | 7.39          |
+| us-west-2 | klone  | DELETE    |                    | 2.49          |
+| kopah     | maoxps | GET       | 108.97        | 10.90         |
+| kopah     | maoxps | PUT       | 36.58         | 3.66          |
+| kopah     | maoxps | STAT      |                    | 7.29          |
+| kopah     | maoxps | DELETE    |                    | 2.42          |
+| us-west-2 | maoxps | GET       | 106.28        | 10.63         |
+| us-west-2 | maoxps | PUT       | 35.42         | 3.54          |
+| us-west-2 | maoxps | STAT      |                    | 7.10          |
+| us-west-2 | maoxps | DELETE    |                    | 2.38          |
 
 ### ossperf
 
 Tested operations with 100 files of 16 MiB each using a single thread for KOPAH and us-west-2 endpoints on a klone compute node and a laptop ("maoxps") on the UW network.
 
 
-| Endpoint  | Machine | Create Bucket | Put    | List | Get    | Delete | Delete Bucket | Upload (MiB/s) | Download (MiB/s) |
+| Endpoint  | Machine | Create Bucket (s) | Put (s)    | List (s) | Get (s)    | Delete (s) | Delete Bucket (s) | Upload (MiB/s) | Download (MiB/s) |
 | --------- | ------- | ------------- | ------ | ---- | ------ | ------ | ------------- | -------------- | ---------------- |
 | us-west-2 | klone   | 1.03          | 116.06 | .74  | 183.10 | 17.77  | .73           | 115.65         | 73.30            |
 | kopah     | klone   | .21           | 40.46  | .23  | 17.91  | 1.12   | .21           | 331.75         | 749.40           |
