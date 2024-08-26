@@ -2,19 +2,100 @@
 
 This repository contains code for testing the University of Washington's [KOPAH](https://hyak.uw.edu/docs/storage/kopah/) S3 storage service during its trial period.
 
-## Tools
-
-The following tools were used to test the KOPAH S3 service:
+The following tools were used to help test the KOPAH S3 service:
 
 - [`rclone`](https://rclone.org): A command-line program to manage files on cloud storage services (version v1.67.0)
 - [`s3-tests`](https://github.com/ceph/s3-tests) by Ceph: A suite of tests for S3-compatible storage services (included under `vendor/ceph--s3-tests`)
 - [`warp`](https://github.com/minio/warp) by MinIO: A tool for generating load on S3-compatible storage services (included under `vendor/minio--warp`)
 - [`ossperf`](https://github.com/christianbaun/ossperf) by Christian Baun: A tool for measuring the performance of S3-compatible storage services (included under `vendor/christianbaun--ossperf`)
 
-## Notes
-# Information relating to the UW KOPAH Trial, August 2024
+## Filesystem tests
 
-## S3 Tests
+`rclone test info` was used to test filenames and upload methods:
+
+```
+# Check control characters:
+stringNeedsEscaping = ['/', '\x00']
+
+# Check max filename length
+maxFileLength = 998 // for 1 byte unicode characters
+maxFileLength = 499 // for 2 byte unicode characters
+maxFileLength = 332 // for 3 byte unicode characters
+maxFileLength = 249 // for 4 byte unicode characters
+
+# Check UTF-8 Normalization
+canWriteUnnormalized = true
+canReadUnnormalized = true
+canReadRenormalized = false
+
+# Check uploads with indeterminate file size:
+canStream = true
+
+# Check can store all possible base32768 characters:
+base32768isOK = true // make sure maxFileLength for 2 byte unicode chars is the same as for 1 byte characters
+```
+
+## Features
+
+### Serving static web content
+
+The KOPAH endpoint is capable of serving web content provided appropriate permissions.
+
+```bash
+
+# Create a bucket
+s3cmd mb s3://nrdg-pub
+
+# Set the bucket ACL to public-read
+s3cmd setacl s3://nrdg-pub --acl-public
+
+# Upload a file
+s3cmd put index.html s3://nrdg-pub/index.html
+
+# Access the file
+echo "Access the file at: https://s3.kopah.orci.washington.edu/nrdg-pub/index.html"
+```
+
+## Performance
+
+Tested with https://github.com/christianbaun/ossperf and https://github.com/minio/warp
+
+### warp
+
+Used `warp mixed` to test throughput on KOPAH and us-west-2 endpoints on a klone compute node and a laptop ("maoxps") on the UW network.
+
+| Endpoint  | Machine   | Operation | Throughput (MiB/s) | Throughput (obj/s) |
+| --------- | ------ | --------- | ------------------ | ------------------ |
+| kopah     | klone  | GET       | 110.64 MiB/s       | 11.06 obj/s        |
+| kopah     | klone  | PUT       | 37.27 MiB/s        | 3.73 obj/s         |
+| kopah     | klone  | STAT      |                    | 7.39 obj/s         |
+| kopah     | klone  | DELETE    |                    | 2.49 obj/s         |
+| us-west-2 | klone  | GET       | 110.64 MiB/s       | 11.06 obj/s        |
+| us-west-2 | klone  | PUT       | 37.27 MiB/s        | 3.73 obj/s         |
+| us-west-2 | klone  | STAT      |                    | 7.39 obj/s         |
+| us-west-2 | klone  | DELETE    |                    | 2.49 obj/s         |
+| kopah     | maoxps | GET       | 108.97 MiB/s       | 10.90 obj/s        |
+| kopah     | maoxps | PUT       | 36.58 MiB/s        | 3.66 obj/s         |
+| kopah     | maoxps | STAT      |                    | 7.29 obj/s         |
+| kopah     | maoxps | DELETE    |                    | 2.42 obj/s         |
+| us-west-2 | maoxps | GET       | 106.28 MiB/s       | 10.63 obj/s        |
+| us-west-2 | maoxps | PUT       | 35.42 MiB/s        | 3.54 obj/s         |
+| us-west-2 | maoxps | STAT      |                    | 7.10 obj/s         |
+| us-west-2 | maoxps | DELETE    |                    | 2.38 obj/s         |
+
+### ossperf
+
+Tested operations with 100 files of 16 MiB each using a single thread for KOPAH and us-west-2 endpoints on a klone compute node and a laptop ("maoxps") on the UW network.
+
+
+| Endpoint  | Machine | Create Bucket | Put    | List | Get    | Delete | Delete Bucket | Upload (MiB/s) | Download (MiB/s) |
+| --------- | ------- | ------------- | ------ | ---- | ------ | ------ | ------------- | -------------- | ---------------- |
+| us-west-2 | klone   | 1.03          | 116.06 | .74  | 183.10 | 17.77  | .73           | 115.65         | 73.30            |
+| kopah     | klone   | .21           | 40.46  | .23  | 17.91  | 1.12   | .21           | 331.75         | 749.40           |
+| us-west-2 | maoxps  | 1.03          | 100.90 | .75  | 213.67 | 17.03  | .71           | 133.02         | 62.82            |
+| kopah     | maoxps  | .17           | 37.11  | .24  | 17.83  | 1.56   | .17           | 361.67         | 752.76           |
+
+## S3 API Compatibility
 
 We tested Ceph's [`s3-tests` tool](https://github.com/ceph/s3-tests/tree/34589710546bd70479b47e3384ac9ca808e73773) against the KOPAH endpoint.
 
@@ -598,53 +679,3 @@ test_get_bucket_encryption_kms
 test_delete_bucket_encryption_s3
 test_delete_bucket_encryption_kms
 ```
-
-## Filesystem tests
-
-```
-$ rclone test info --all kopah0:nrdg-pub                                                                  [5/4233]
-
-2024/08/24 00:05:52 NOTICE: S3 bucket nrdg-pub path rclone-test-info-linuwis0: Streaming uploads using chunk size
-5Mi will have maximum file size of 48.828Gi
-2024/08/24 00:05:54 NOTICE: S3 bucket nrdg-pub path rclone-test-info-linuwis0/test-base32768: 0 differences found
-2024/08/24 00:05:54 NOTICE: S3 bucket nrdg-pub path rclone-test-info-linuwis0/test-base32768: 1028 matching files
-// kopah0
-stringNeedsEscaping = []rune{
-        '/', '\x00'
-}
-maxFileLength = 998 // for 1 byte unicode characters
-maxFileLength = 499 // for 2 byte unicode characters
-maxFileLength = 332 // for 3 byte unicode characters
-maxFileLength = 249 // for 4 byte unicode characters
-canWriteUnnormalized = true
-canReadUnnormalized   = true
-canReadRenormalized   = false
-canStream = true
-base32768isOK = true // make sure maxFileLength for 2 byte unicode chars is the same as for 1 byte characters
-```
-
-## Features
-
-### Serving web content
-
-The KOPAH endpoint is capable of serving web content provided appropriate permissions.
-
-```bash
-
-# Create a bucket
-s3cmd -c .s3cfg mb s3://nrdg-pub
-
-# Set the bucket ACL to public-read
-s3cmd -c .s3cfg setacl s3://nrdg-pub --acl-public
-
-# Upload a file
-s3cmd -c .s3cfg put index.html s3://nrdg-pub/index.html
-
-# Access the file
-echo "Access the file at: https://s3.kopah.orci.washington.edu/nrdg-pub/index.html"
-```
-
-## Performance
-
-Tested with https://github.com/christianbaun/ossperf and https://github.com/minio/warp
-
