@@ -68,10 +68,10 @@ Used `warp mixed` to test throughput on KOPAH and us-west-2 endpoints on a klone
 | kopah     | klone  | PUT       | 37.27         | 3.73          |
 | kopah     | klone  | STAT      |                    | 7.39          |
 | kopah     | klone  | DELETE    |                    | 2.49          |
-| us-west-2 | klone  | GET       | 110.64        | 11.06         |
-| us-west-2 | klone  | PUT       | 37.27         | 3.73          |
-| us-west-2 | klone  | STAT      |                    | 7.39          |
-| us-west-2 | klone  | DELETE    |                    | 2.49          |
+| us-west-2 | klone  | GET       | 109.08        | 10.91         |
+| us-west-2 | klone  | PUT       | 36.62         | 3.66          |
+| us-west-2 | klone  | STAT      |                    | 7.34          |
+| us-west-2 | klone  | DELETE    |                    | 2.43          |
 | kopah     | maoxps | GET       | 108.97        | 10.90         |
 | kopah     | maoxps | PUT       | 36.58         | 3.66          |
 | kopah     | maoxps | STAT      |                    | 7.29          |
