@@ -2,6 +2,52 @@
 
 This repository contains code for testing the University of Washington's [KOPAH](https://hyak.uw.edu/docs/storage/kopah/) S3 storage service during its trial period.
 
+
+## Features
+
+### Serving static web content
+
+The KOPAH endpoint is capable of serving web content provided appropriate permissions.
+
+```bash
+
+# Create a bucket
+s3cmd mb s3://nrdg-pub
+
+# Set the bucket ACL to public-read
+s3cmd setacl s3://nrdg-pub --acl-public
+
+# Upload a file
+s3cmd put index.html s3://nrdg-pub/index.html
+
+# Access the file
+echo "Access the file at: https://s3.kopah.orci.washington.edu/nrdg-pub/index.html"
+```
+
+WARNING: The above example makes the bucket and its contents readable to the public. Be sure to restrict access to sensitive data.
+
+### Using `rclone`
+
+`rclone` can be configured to use the KOPAH endpoint as a remote.
+
+For interactive configuration, use:
+
+- the storage type `4 / Amazon S3 Compliant Storage Providers including AWS, ...`
+- the S3 provider `32 / Any other S3 compatible provider`
+
+If you have a configuration file, you can use the following template:
+
+```ini
+[kopah]
+type = s3
+provider = Other
+access_key_id = <access_key>
+secret_access_key = <secret_key>
+endpoint = s3.kopah.orci.washington.edu
+```
+
+## Testing
+
 The following tools were used to help test the KOPAH S3 service:
 
 - [`rclone`](https://rclone.org): A command-line program to manage files on cloud storage services (version v1.67.0)
@@ -35,77 +81,71 @@ canStream = true
 base32768isOK = true // make sure maxFileLength for 2 byte unicode chars is the same as for 1 byte characters
 ```
 
-## Features
+### Performance
 
-### Serving static web content
+Throughput for various operations was tested using `warp` and `ossperf` on a Hyak Klone compute node and a laptop ("maoxps") on the UW network.
 
-The KOPAH endpoint is capable of serving web content provided appropriate permissions.
+The tests were conducted during business hours on a weekday, so the results may not be representative of the service's full capacity, how one service compares to another, or how one tool compares to another. However, the tests indicate that KOPAH is at least as fast as the `us-west-2` endpoint.
 
-```bash
+#### warp
 
-# Create a bucket
-s3cmd mb s3://nrdg-pub
+Used `warp mixed` to test throughput for various operations on a single thread.
 
-# Set the bucket ACL to public-read
-s3cmd setacl s3://nrdg-pub --acl-public
+| Endpoint  | Machine | Operation | Throughput (MiB/s) | Throughput (obj/s) |
+| --------- | ------- | --------- | ------------------ | ------------------ |
+| us-west-2 | klone   | GET       | 16.84              |                    |
+| us-west-2 | klone   | PUT       | 5.46               |                    |
+| us-west-2 | klone   | STAT      |                    | 1.12               |
+| us-west-2 | klone   | DELETE    |                    | 0.36               |
+| kopah     | klone   | GET       | 62.55              |                    |
+| kopah     | klone   | PUT       | 21.01              |                    |
+| kopah     | klone   | STAT      |                    |                    |
+| kopah     | klone   | DELETE    |                    |                    |
 
-# Upload a file
-s3cmd put index.html s3://nrdg-pub/index.html
-
-# Access the file
-echo "Access the file at: https://s3.kopah.orci.washington.edu/nrdg-pub/index.html"
-```
-
-## Performance
-
-### warp
-
-Used `warp mixed` to test throughput on KOPAH and us-west-2 endpoints on a klone compute node and a laptop ("maoxps") on the UW network.
-
-| Endpoint  | Machine   | Operation | Throughput (MiB/s) | Throughput (obj/s) |
-| --------- | ------ | --------- | ------------------ | ------------------ |
-| kopah     | klone  | GET       | 110.64        | 11.06         |
-| kopah     | klone  | PUT       | 37.27         | 3.73          |
-| kopah     | klone  | STAT      |                    | 7.39          |
-| kopah     | klone  | DELETE    |                    | 2.49          |
-| us-west-2 | klone  | GET       | 109.08        | 10.91         |
-| us-west-2 | klone  | PUT       | 36.62         | 3.66          |
-| us-west-2 | klone  | STAT      |                    | 7.34          |
-| us-west-2 | klone  | DELETE    |                    | 2.43          |
-| kopah     | maoxps | GET       | 108.97        | 10.90         |
-| kopah     | maoxps | PUT       | 36.58         | 3.66          |
-| kopah     | maoxps | STAT      |                    | 7.29          |
-| kopah     | maoxps | DELETE    |                    | 2.42          |
-| us-west-2 | maoxps | GET       | 106.28        | 10.63         |
-| us-west-2 | maoxps | PUT       | 35.42         | 3.54          |
-| us-west-2 | maoxps | STAT      |                    | 7.10          |
-| us-west-2 | maoxps | DELETE    |                    | 2.38          |
+| Endpoint  | Machine | Operation | Throughput (MiB/s) | Throughput (obj/s) |
+| --------- | ------- | --------- | ------------------ | ------------------ |
+| kopah     | maoxps  | GET       | 64.17              |                    |
+| kopah     | maoxps  | PUT       | 21.26              |                    |
+| kopah     | maoxps  | STAT      |                    | 4.31               |
+| kopah     | maoxps  | DELETE    |                    | 1.43               |
+| us-west-2 | maoxps  | GET       | 19.37              |                    |
+| us-west-2 | maoxps  | PUT       | 30.1               |                    |
+| us-west-2 | maoxps  | STAT      |                    | 1.34               |
+| us-west-2 | maoxps  | DELETE    |                    | 0.42               |
 
 ### ossperf
 
-Tested operations with 100 files of 16 MiB each using a single thread for KOPAH and us-west-2 endpoints on a klone compute node and a laptop ("maoxps") on the UW network.
+Tested operations with 100 files of 16 MiB each using a single thread for KOPAH and us-west-2 endpoints on a single thread.
 
-
-| Endpoint  | Machine | Create Bucket (s) | Put (s)    | List (s) | Get (s)    | Delete (s) | Delete Bucket (s) | Upload (MiB/s) | Download (MiB/s) |
+| Endpoint  | Machine | Create Bucket (s) | Put (s)    | List (s) | Get (s) | Delete (s) | Delete Bucket (s) | Upload (MiB/s) | Download (MiB/s) |
 | --------- | ------- | ------------- | ------ | ---- | ------ | ------ | ------------- | -------------- | ---------------- |
-| us-west-2 | klone   | 1.03          | 116.06 | .74  | 183.10 | 17.77  | .73           | 115.65         | 73.30            |
-| kopah     | klone   | .21           | 40.46  | .23  | 17.91  | 1.12   | .21           | 331.75         | 749.40           |
-| us-west-2 | maoxps  | 1.03          | 100.90 | .75  | 213.67 | 17.03  | .71           | 133.02         | 62.82            |
-| kopah     | maoxps  | .17           | 37.11  | .24  | 17.83  | 1.56   | .17           | 361.67         | 752.76           |
+|us-west-2|klone|1.11|131.59|.74|351.41|18.56|.72|102.00|38.19|
+|kopah|klone|.18|39.16|.23|17.39|1.33|.24|58.52|771.63|
+
+| Endpoint | Machine | Create Bucket (s) | Put (s)    | List (s) | Get (s)    | Delete (s) | Delete Bucket (s) | Upload (MiB/s) | Download (MiB/s) |
+| --------- | ------- | ------------- | ------ | ---- | ------ | ------ | ------------- | -------------- | ---------------- |
+|us-west-2|maoxps|1.03|107.50|.74|228.03|16.92|.72|124.86|58.86|
+|kopah|maoxps|.21|38.83|.22|17.86|1.43|.20|345.68|751.58|
 
 ## S3 API Compatibility
 
+### Storage classes
+
+We attempted to use several standard AWS and Ceph storage classes (`STANDARD REDUCED_REDUNDANCY STANDARD_IA ONEZONE_IA INTELLIGENT_TIERING GLACIER DEEP_ARCHIVE LUKEWARM FROZEN`) using `s3cmd`, but only `STANDARD` was supported. See `try_storage_classes.sh` for the script used.
+
+### `s3-tests` Test Suite
+
 We tested Ceph's [`s3-tests` tool](https://github.com/ceph/s3-tests/tree/34589710546bd70479b47e3384ac9ca808e73773) against the KOPAH endpoint.
 
-### Functional tests
+#### `test_s3.py`
 
-The functional tests at `functional/test_s3.py` resulted in:
+The functional tests at `vendor/ceph--s3-tests/s3tests_boto3/functional/test_s3.py` resulted in:
 
 `==== 124 failed, 426 passed, 10 skipped, 685 warnings in 1064.47s (0:17:44) ====`
 
-### Failures
+##### Failures
 
-```
+```plain
 test_account_usage
 test_head_bucket_usage
 test_object_write_to_nonexist_bucket
@@ -119,7 +159,7 @@ test_object_put_acl_mtime
 test_object_anon_put
 test_bucket_create_exists_nonowner
 test_object_acl_canned_bucketownerread
-test_object_acl_canned_bucketownerfullcontrol
+**test_object_acl_canned_bucketownerfullcontrol**
 test_bucket_acl_grant_userid_read
 test_bucket_acl_grant_userid_readacp
 test_bucket_acl_grant_userid_write
@@ -232,9 +272,9 @@ test_multipart_checksum_3parts
 test_post_object_upload_checksum
 ```
 
-### Skipped
+##### Skipped
 
-```
+```plain
 test_bucket_get_location
 test_lifecycle_transition ("requires 3 or more storage classes")
 test_lifecycle_transition_single_rule_multi_trans ("requires 3 or more storage classes")
@@ -247,9 +287,9 @@ test_lifecycle_noncur_cloud_transition ("requires 3 or more storage classes")
 test_lifecycle_cloud_transition_large_obj ("requires 2 or more storage classes")
 ```
 
-### Passed
+##### Passed
 
-```
+```plain
 test_bucket_list_empty
 test_bucket_list_distinct
 test_bucket_list_many
